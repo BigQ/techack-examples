@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.techack.examples.routeguide.rpc.hw";
+option java_outer_classname = "HelloWorldProto";
+
+package hw.rpc;
+
+service Greeter {
+
+    rpc SayHello(HelloRequest) returns (HelloReply){};
+
+    rpc RouteChat(stream HelloRequest) returns (HelloReply) {};
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
